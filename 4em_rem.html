@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em_Rem</title>
+</head>
+<body>
+
+    <div id="Ram">
+        <p id="R">Ram Hi hai Ram</p>
+        <p id="A"> Ram Bhakt Hanuman</p>
+        <p id="M">Jai Shree ram</p>
+
+    </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100%;
+        height:100%;
+
+    }
+    #Ram{
+        font-size: 10px;
+    }
+    
+    #A{
+        font-size: 5em;   /*this em just multiplies with the current parent property like the parent had 10px font size and this A had font size 5em so it becomes 50px font size*/
+    }
+    #M{
+        width:10ch;    /*ch basically acquires the width according to the characters defined here we defined 10 ch which means that the width of the id M would be equal to 10 characters only*/
+        font-size: 3em;
+        margin-top: 2lh;/*lh will give the space accordingly like if defined 2LH this means it will take margin of two lines based on the fontg size of the selected attribute*/
+    }
+
+
+</style>

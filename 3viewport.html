@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewport</title>
+</head>
+<body>
+    <div id="box">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div id="box4"></div>
+        <div id="box5"></div>
+    </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    #box{
+        
+        width: 1280px;
+        height: 720px;
+        background-color: aqua;
+    }
+    #box1{
+        width: 25%;
+        height: 25%;
+        background-image: url(https://images.unsplash.com/photo-1768050197707-5576b319e2d3?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        background-color: blue;
+        background-size: cover;
+        background-position: center;
+    }
+    #box2{
+        width: 25%;
+        height: 25%;
+        background-image: url(https://images.unsplash.com/photo-1768050197707-5576b319e2d3?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        background-color: blue;
+        background-size: cover;
+        background-position: center;
+    }
+ 
+</style>
+<!--   
+8vh====> is used to get the hight of the viewport which is the screen's height min is 0 100 is maximum
+   vw===> is used to get the width of the viewport which is the screen's width min is 0 100 is maximum
+   % ===> is used to get the size depending on the parent min is 0 and max is 100
+   px===> is the the unit which is independent of the viewport and parent
+   vmax ====> is used to get which is maximum available if vh then it uses vh when vw then vw 
+   vmin ====> is used to get which is minimum available if vh then it uses vh when vw then vw 
+      
+    these confusing vmin and vmax are usually for the landscape and portrait oreintation for better responsiveness
+   ******/
+    This is the header section -->
+
