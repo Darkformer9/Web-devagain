@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Jaisakuch</title>
+</head>
+<body>
+  <div class="Ram">
+      
+    <div id="child1">Home </div>  <!-- in sabko ek sath lane ke liye maine kiya    (div#child@*3)   aur ye sab likh gaya ek bar mein -->
+    <div id="child2">About</div>
+    <div id="child3">Careers</div>
+    <div id="child4">Donate</div>
+  
+  </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100%;
+        height:100%;
+
+    }
+    .Ram{
+        background-color: aqua;
+        display: flex;
+        gap: 30px;  /*This is used to give gap between contents its sometimes looks better than space in-between,evenly */
+        justify-content: flex-end;
+        font-size: 30px;
+    }
+</style>
