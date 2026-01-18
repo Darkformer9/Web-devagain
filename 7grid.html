@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="Ram">
+    <Parent id="child1"></Parent>
+    <Parent id="child2"></Parent>
+    <Parent id="child3"></Parent>
+    <Parent id="child4"></Parent>
+    <Parent id="child5"></Parent>
+    <Parent id="child6"></Parent>
+    <Parent id="child7"></Parent>
+    <Parent id="child8"></Parent>
+   </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+
+    }
+    .Ram{
+        height: 100%;
+        width: 100%;
+        background-color: rgb(139, 89, 13);
+        display: grid;
+        
+        grid-template-columns: 1fr 1fr 1fr;/*here fr means fractions matylab abhi yaha pe column wise viewport 6 parts mein bat jayega aur pahle ko ek part dusre ko do aur tisre ko bhi teen mil jayenge*/
+        grid-template-rows: 1fr 1fr 1fr;
+        border: 2px solid green;
+    }
+    #child1{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(60, 68, 68);
+    }
+    #child2{
+        width: 200px;
+        height: 100px;
+        background-color: aqua;
+        align-self: center;/*isme ye element khud ko align kar leta hai*/
+        justify-self: center;/*aise jhi khud ko justify bhi kar leta hai*/
+
+        
+
+    }
+    #child3{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(36, 23, 218);
+    }
+    #child4{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    #child5{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(209, 226, 226);
+    }
+    #child6{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(230, 142, 28);
+    }
+    #child7{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(2, 46, 46);
+    }
+    #child8{
+        width: 200px;
+        height: 200px;
+        background-color: rgb(39, 238, 238);
+    }
+</style>
