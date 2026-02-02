@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(14, 8, 8);
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(250, 248, 244);
+    padding: 10px 20px;
+
+
+
+
+}
+
+.nav1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav2 {
+    display: flex;
+    align-items: center;
+    justify-items: last baseline;
+    gap: 20px;
+
+
+}
+
+.nav1 img {
+    height: 90px;
+    width: 90px;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+
+.nav1 h5 {
+    font-size: 15px;
+
+
+}
+
+.nav2 h6 {
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.nav2 h5 {
+    display: none;
+}
+
+.nav2 h4 {
+    font-size: 100px;
+}
+
+
+
+
+main {
+    padding-top: 100px;
+}
+
+.section1 {
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center p {
+   
+    width: 400px;
+    font-size: 50px;
+    text-align: center;    /*its used for the writting style but this time it wio
+    will make the horizontally center*/
+    color: aliceblue;
+    margin: 20px auto;   /*it will help the box to be centered by itself*/
+
+
+}
+.bad .btn{
+    display: flex;
+    background-color: rgb(41, 185, 101);
+    color: blueviolet;
+    
+    padding: 10px;
+    align-items: center;
+    justify-content:center;
+    width: 180px;
+    margin: 2px auto;
+    font-size: 20px;
+    border-radius: 15px;
+
+    
+}
+.bad p{
+     position: absolute;
+  left: 65%;
+  top: 40%;
+  font-size: 15px;
+  width: 180px;
+
+
+}
+.Teen{
+    display: flex;
+    gap: 10vw;
+    width:40vw;
+    color: rgb(41, 25, 2);
+    font-size: 0.75em;
+    margin: 25vh;
+}    
+.Teen Box{
+    
+    width: 200px;
+    height: 80px;
+    color: aliceblue;
+}
+.para{
+    color: aliceblue;
+    font-size: 40px;
+    text-align: center;
+
+}
+.para1 {
+    
+    font-size: 40px;
+    text-align: center;    /*its used for the writting style but this time it wio
+    will make the horizontally center*/
+    color: rgb(11, 61, 1);
+    margin: 20px auto;   /*it will help the box to be centered by itself*/
+
+
+}
