@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Update your existing .form to handle the height better */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: grey;
+    width: 25vw;
+    height: auto; /* Changed from 30vh to auto to fit content */
+    padding-bottom: 2rem;
+    border-radius: 3rem;
+}
+
+/* The wrapper needs to be the same width as your email input */
+.password-wrapper {
+    position: relative;
+    width: 80%;
+    height: 45px; /* Fixed height is more stable */
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+
+input[type="email"], 
+#passInput {
+    background-color: rgb(141, 144, 145);
+    height: 45px;
+    width: 100%; /* Important: fill the wrapper */
+    border-radius: 1rem;
+    border: none;
+    padding: 0 40px 0 15px; /* 40px padding on right for the eye, 15px on left for text */
+    text-align: left; /* Alignment fix */
+    outline: none;
+    color: white;
+}
+
+/* Ensure the email input matches the left alignment */
+input[type="email"] {
+    text-align: left;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+#toggleIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+}
+.align{
+    display: flex;
+    justify-content: center;
+    margin-top: 20rem;
+    
+    
+
+}
+#validate{
+    border-radius: 1rem;
+    width:80%;
+    height: 15%;
+    background-color:rgb(91, 91, 105) ;
+}
+
+    </style>
+</head>
+<body>
+        <div class="align">
+       <div class="form">
+        <h4>Credential Validator</h4>
+        <input type="email" placeholder="Enter your Email" />
+        <br>
+        
+       <div class="password-wrapper">
+    <input type="password" id="passInput" placeholder="Enter your Password" />
+    <i class="fa-solid fa-eye" id="toggleIcon"></i>
+</div>
+       
+        <button id="validate">Validate</button>
+       </div>
+       
+       </div>
+    <script src="Form.js"></script>
+</body>
+</html>

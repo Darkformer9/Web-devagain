@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+             display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+         .contain{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            width:20%;
+            height: 15%;
+
+            
+            
+         }
+         #bar{
+            height: 1rem;
+            width: 85%;
+            
+            border-radius: 2rem;
+            background: linear-gradient(to right, #4caf50 0%, #ddd 0%); /*/yo you  have learnt here ho to fade the colors*/ 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8 rem;
+              
+         }
+         .contain h4{
+            color: #3e3f3ea9;
+         }
+
+     </style>
+</head>
+<body>
+     
+
+    <div class="contain">
+        <h4>Downloading...</h4>
+        <div id="bar">
+            <span id="percent-text">0%</span>
+        </div>
+    </div>
+    
+    
+    <script src="timer.js"></script>
+</body>
+</html>
+

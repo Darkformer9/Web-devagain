@@ -1,0 +1,4 @@
+1 coantainer div box
+2 heading for downloading
+3 a div downlaod progress bar which contains the percentage its downloaded
+

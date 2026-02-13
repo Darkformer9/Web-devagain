@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+      .details{
+        display: flex;
+       
+        justify-content: center;    
+        flex-direction: column;
+        width: 25vw;
+        }
+        #fileInput{
+            display:none;
+        }
+         * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      head,
+      html {
+        height: 100%;
+        width: 100%;
+      }
+      .card {
+        height: 20rem;
+        width: 15rem;
+        border: 2px solid rgb(171, 171, 180);
+        border-radius: 3rem;
+        background-color: rgb(170, 173, 173);
+        margin:2rem;
+      }
+        .card img {
+            height: 8rem;
+            width: 8rem;
+            border-radius: 2rem;
+            margin-left: 3rem;
+            margin-top: 1rem;
+            
+            display: block;
+        }
+        .card h4 {
+            
+            margin: 1rem;
+        }
+        .card p {
+            margin: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <form class="details">
+    <H3>Enter The required details</H3>
+
+    <input type="text" id="inputPhoto" placeholder="Upload Photo">
+    <input type="text" id="inputName" placeholder="Enter Name">
+    <input type="text" id="inputA" placeholder="Aukat Batao">
+    <input type="text" id="addr" placeholder="Pata Batao">
+    <button type="submit">Submit and Generate Card</button>
+    
+    </form>
+
+   
+        
+  
+
+    <script src="cardgenerator.js"></script>
+</body>
+</html>
