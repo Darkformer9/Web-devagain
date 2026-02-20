@@ -1,0 +1,323 @@
+<!--this is not a very good code but im sure you will understand the basics of fetching and setting 
+the data in the local storage and also how to make a interactive app using javascript
+ and html css you can also make a different js file and link it to the html  
+ 
+               by the way jai ho baba ji ki   
+               
+               -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Callapp</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>  /* style yaha se shuru ho rahi hai you can make a differst css folder and paste the style part don't forget to link the css to the html */
+:root {
+  --bg-color: #f5f5f5;
+  --text-main: #000000;
+  --text-secondary: #777777;
+  --btn-gray: #eeeeee;
+  --theme-color: black;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Inter', -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  gap: 50px;
+}
+
+/* The layout of the form which will recieve the data from the user*/
+.dark-form {
+  background-color: #1e1e1e;
+  padding: 25px;
+  border-radius: 16px;
+  width: 350px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+.dark-input {
+  width: 100%;
+  padding: 10px;
+  background: #2d2d2d;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.category-options { display: flex; gap: 8px; margin: 10px 0 20px; }
+.category-options input { display: none; }
+.pill {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid #555;
+  cursor: pointer;
+  color: #ccc;
+}
+input:checked + .pill {
+  background: #444;
+  color: white;
+  border-color: white;
+}
+
+.btn-create, .btn-close {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-create { background: white; color: black; margin-bottom:10px; }
+.btn-close { background:#5a0000; color:white; }
+
+/* This is the card means the creation of card start from here*/
+.app-container { display: flex; align-items: center; gap: 30px; }
+
+.side-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.circle-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-stack {
+  position: relative;
+  width: 340px;
+  height: 300px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  box-sizing: border-box;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.name { font-size: 24px; font-weight: 700; margin:0 0 15px 0; }
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.actions { display: flex; gap: 12px; margin-top: 25px; }
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-call {
+  background: var(--theme-color);
+  color: white;
+}
+
+.btn-message {
+  background: var(--btn-gray);
+  color: black;
+}
+
+/* Theme dots */
+.color-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.dot-black { background: black; }
+.dot-blue { background: #080bbb; }
+.dot-orange { background: #f97316; }
+.dot-green { background: #194102; }
+
+</style>
+</head>
+<body>
+
+<div class="dark-form" id="inputForm" style="display:none;">
+  <h2>New Call</h2>
+  <input id="imgInput" class="dark-input" placeholder="Image URL">
+  <input id="nameInput" class="dark-input" placeholder="Full Name">
+  <input id="townInput" class="dark-input" placeholder="Home Town">
+  <input id="purposeInput" class="dark-input" placeholder="Purpose">
+
+  <div class="category-options">
+    <label><input type="radio" name="cat" value="Emergency" checked><span class="pill">Emergency</span></label>
+    <label><input type="radio" name="cat" value="Important"><span class="pill">Important</span></label>
+    <label><input type="radio" name="cat" value="Urgent"><span class="pill">Urgent</span></label>
+  </div>
+
+  <button class="btn-create" onclick="addNote()">Create Note</button>
+  <button class="btn-close" onclick="toggleForm()">Close</button>
+</div>
+
+<div class="app-container">
+  <div class="side-controls">
+    <button class="circle-btn" onclick="toggleForm()">+</button>
+    <button class="circle-btn" onclick="navigateStack(-1)">↑</button>
+    <button class="circle-btn" onclick="navigateStack(1)">↓</button>
+  </div>
+
+  <div class="card-stack" id="cardStack"></div>
+
+  <div class="color-indicators">
+    <span class="dot dot-black" onclick="updateTheme('black')"></span>
+    <span class="dot dot-blue" onclick="updateTheme('#080bbb')"></span>
+    <span class="dot dot-orange" onclick="updateTheme('#f97316')"></span>
+    <span class="dot dot-green" onclick="updateTheme('#194102')"></span>
+  </div>
+</div>
+
+<script>   //from here the JavaScript code start which will make the app functional and interactive you can also make a different js file and link it to the html
+document.addEventListener("DOMContentLoaded", function(){
+
+function loadNotes(){
+  try{
+    const data = localStorage.getItem("notesData");
+    return data ? JSON.parse(data) : [];
+  }catch(e){
+    localStorage.removeItem("notesData");
+    return [];
+  }
+}
+
+let notesData = loadNotes();
+let currentThemeColor = "black";
+
+window.toggleForm = function(){
+  const form = document.getElementById("inputForm");
+  form.style.display = form.style.display === "none" ? "block" : "none";
+};
+
+window.addNote = function(){
+  const name = nameInput.value.trim();
+  const town = townInput.value.trim();
+  const purpose = purposeInput.value.trim();
+  const img = imgInput.value.trim() || "https://via.placeholder.com/60";
+
+  if(!name || !town || !purpose) return alert("Fill all fields");
+
+  const cat = document.querySelector('input[name="cat"]:checked').value;
+
+  notesData.unshift({name, town, purpose, img, cat});
+  saveNotes();
+  renderCards();
+  toggleForm();
+
+  imgInput.value = "";
+  nameInput.value = "";
+  townInput.value = "";
+  purposeInput.value = "";
+};
+
+window.navigateStack = function(dir){
+  if(notesData.length < 2) return;
+
+  if(dir === 1) notesData.push(notesData.shift());
+  else notesData.unshift(notesData.pop());
+
+  saveNotes();
+  renderCards();
+};
+
+window.updateTheme = function(color){
+  currentThemeColor = color;
+  document.documentElement.style.setProperty("--theme-color", color);
+  renderCards();
+};
+
+function saveNotes(){
+  localStorage.setItem("notesData", JSON.stringify(notesData));
+}
+
+function renderCards(){
+  const container = document.getElementById("cardStack");
+  container.innerHTML = "";
+
+  if(notesData.length === 0){
+    container.innerHTML = "<div class='card'><h2 style='text-align:center;margin-top:100px;'>No Calls</h2></div>";
+    return;
+  }
+
+  notesData.slice(0,3).forEach((note,index)=>{
+    const translateY = index * 15;
+    const scale = 1 - index * 0.05;
+    const zIndex = 10 - index;
+    const opacity = 1 - index * 0.2;
+
+    container.innerHTML += `
+      <div class="card" style="
+        transform: translateY(${translateY}px) scale(${scale});
+        z-index:${zIndex};
+        opacity:${opacity};
+      ">
+        <img src="${note.img}" class="avatar">
+        <h2 class="name">${note.name}</h2>
+        <div class="info-row"><span>Home</span><span>${note.town}</span></div>
+        <div class="info-row"><span>Purpose</span><span>${note.purpose} (${note.cat})</span></div>
+        <div class="actions">
+          <button class="btn btn-call">Call</button>
+          <button class="btn btn-message">Message</button>
+        </div>
+      </div>`;
+  });
+}
+
+renderCards();
+
+});
+</script>
+
+</body>
+</html>
